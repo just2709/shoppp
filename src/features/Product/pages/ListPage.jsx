@@ -1,14 +1,13 @@
-import React, { useEffect, useMemo, useState } from "react";
-import PropTypes from "prop-types";
 import { Box, Container, Grid, Pagination, Paper } from "@mui/material";
-import productApi from "../../../api/productApi";
-import ProductListSkeleton from "../components/ProductListSkeleton";
-import ProductList from "../components/ProductList";
-import ProductSort from "../components/ProductSort";
-import ProductFilters from "../components/ProductFilters";
-import FilterViewer from "../components/Filters/FilterViewer";
-import { useNavigate, useLocation, createSearchParams } from "react-router-dom";
 import queryString from "query-string";
+import React, { useEffect, useMemo, useState } from "react";
+import { createSearchParams, useLocation, useNavigate } from "react-router-dom";
+import productApi from "../../../api/productApi";
+import FilterViewer from "../components/Filters/FilterViewer";
+import ProductFilters from "../components/ProductFilters";
+import ProductList from "../components/ProductList";
+import ProductListSkeleton from "../components/ProductListSkeleton";
+import ProductSort from "../components/ProductSort";
 
 ListPage.propTypes = {};
 
@@ -100,35 +99,21 @@ function ListPage(props) {
   };
 
   return (
-    <Box className='mt-20 min-h-screen'>
+    <Box className='mt-16 pt-5 min-h-screen'>
       <Container>
         <Grid container spacing={1} className=''>
           <Grid item className='w-[250px]'>
             <Paper elevation={0} className='p-4'>
-              <ProductFilters
-                filters={queryParams}
-                onChange={handleFiltersChange}
-              />
+              <ProductFilters filters={queryParams} onChange={handleFiltersChange} />
             </Paper>
           </Grid>
           <Grid item className='flex-1'>
             <Paper elevation={0} className='p-5'>
-              <ProductSort
-                currentSort={queryParams._sort}
-                onChange={handleSortChange}
-              />
+              <ProductSort currentSort={queryParams._sort} onChange={handleSortChange} />
               <FilterViewer filters={queryParams} onChange={handleNewFilters} />
-              {loading ? (
-                <ProductListSkeleton length={9} />
-              ) : (
-                <ProductList data={productList} />
-              )}
+              {loading ? <ProductListSkeleton length={9} /> : <ProductList data={productList} />}
               <Box className='flex justify-center mt-5 pb-10'>
-                <Pagination
-                  color='primary'
-                  count={Math.ceil(pagination.total / pagination.limit)}
-                  page={pagination.page}
-                  onChange={handlePageChange}></Pagination>
+                <Pagination color='primary' count={Math.ceil(pagination.total / pagination.limit)} page={pagination.page} onChange={handlePageChange}></Pagination>
               </Box>
             </Paper>
           </Grid>

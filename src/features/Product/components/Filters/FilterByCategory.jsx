@@ -1,6 +1,5 @@
+import { Box, Skeleton } from "@mui/material";
 import React, { useEffect, useState } from "react";
-import PropTypes from "prop-types";
-import { Box, Typography, Skeleton } from "@mui/material";
 import categoryApi from "../../../../api/categoryApi";
 
 FilterByCategory.propTypes = {};
@@ -14,9 +13,7 @@ function FilterByCategory({ onChange }) {
     (async () => {
       try {
         const response = await categoryApi.getAll();
-        setCategoryList(
-          response.map((item) => ({ id: item.id, name: item.name }))
-        );
+        setCategoryList(response.map((item) => ({ id: item.id, name: item.name })));
       } catch (err) {
         console.error(err);
       }
@@ -41,10 +38,7 @@ function FilterByCategory({ onChange }) {
       ) : (
         <ul>
           {categoryList.map((category) => (
-            <li
-              className='cursor-pointer mt-1 hover:text-purple-500 transition-all duration-200'
-              onClick={() => handleCategoryClick(category.id, category.name)}
-              key={category.id}>
+            <li className='cursor-pointer mt-1 hover:text-purple-500 transition-all duration-200' onClick={() => handleCategoryClick(category.id, category.name)} key={category.id}>
               {category.name}
             </li>
           ))}

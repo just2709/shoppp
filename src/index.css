@@ -1,7 +1,6 @@
-html {
-  background-color: rgb(244, 244, 244)
-}
-
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -11,11 +10,19 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+* {
+  box-sizing: border-box;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+.mySwiper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+
+

@@ -1,18 +1,16 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { useSelector } from "react-redux";
-import { cartItemsCountSelector } from "../../features/Cart/selectors";
 import { Button, Container, Grid, Paper } from "@mui/material";
+import React from "react";
+import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import ProductList from "./components/ProductList";
+import { cartItemsCountSelector } from "../../features/Cart/selectors";
 import Bill from "./components/Bill";
+import ProductList from "./components/ProductList";
 
 CartFeature.propTypes = {};
 
 function CartFeature(props) {
   const cartItemsCount = useSelector(cartItemsCountSelector);
   const navigate = useNavigate();
-
   const handleClick = () => {
     navigate({
       pathname: "/products",

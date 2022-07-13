@@ -15,9 +15,7 @@ function Bill(props) {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const handleBuy = () => {
-    alert(
-      "Tính năng mua hàng chỉ tạm dừng lại ở mức xóa sản phẩm khỏi giỏi hàng. Thanks"
-    );
+    alert("Tính năng mua hàng chỉ tạm dừng lại ở mức xóa sản phẩm khỏi giỏi hàng. Thanks");
     const action = removeAllCart();
     dispatch(action);
     navigate({
@@ -38,11 +36,7 @@ function Bill(props) {
           <h1 className='text-sm mb-5'>(Đã bao gồm VAT nếu có)</h1>
         </div>
       </div>
-      <Button
-        onClick={handleBuy}
-        className='w-full'
-        variant='contained'
-        type='submit'>
+      <Button onClick={handleBuy} className='w-full' variant='contained' type='submit'>
         Mua hàng ({cartItemsCount})
       </Button>
     </>

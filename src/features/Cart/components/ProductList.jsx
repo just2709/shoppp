@@ -1,7 +1,6 @@
 import React from "react";
-import PropTypes from "prop-types";
-import Product from "./Product";
 import { useSelector } from "react-redux";
+import Product from "./Product";
 
 ProductList.propTypes = {};
 
@@ -12,11 +11,7 @@ function ProductList(props) {
     <div>
       Danh sách sản phẩm
       {productList.map((product) => (
-        <Product
-          key={product.id}
-          product={product.product}
-          quantity={product.quantity}
-        />
+        <Product key={product.id} product={product.product} quantity={product.quantity} />
       ))}
     </div>
   );

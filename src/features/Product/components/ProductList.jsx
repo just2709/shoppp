@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Box, Grid, Skeleton } from "@mui/material";
+import { Box, Grid, Paper, Skeleton } from "@mui/material";
 import Product from "./Product";
 
 ProductList.propTypes = {};
@@ -12,13 +12,11 @@ ProductList.defaultProps = {
 function ProductList({ data }) {
   return (
     <Box>
-      <Grid container>
+      <Paper elevation={0} className='p-4 grid grid-cols-4 pb-20'>
         {data.map((product) => (
-          <Grid item key={product.id} xs={12} sm={6} md={4} lg={3}>
-            <Product product={product} />
-          </Grid>
+          <Product key={product.id} product={product} />
         ))}
-      </Grid>
+      </Paper>
     </Box>
   );
 }
