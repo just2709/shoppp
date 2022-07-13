@@ -7,31 +7,18 @@ import ListPage from "./features/Product/pages/ListPage";
 import CartFeature from "./features/Cart";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-
 import Notfound from "./components/Notfound/index";
 import { useDispatch } from "react-redux";
 import { setCart } from "./features/Cart/cartSlice";
 import { unwrapResult } from "@reduxjs/toolkit";
 
 function App() {
-  // const dispatch = useDispatch();
-  // const set = async (values) => {
-  //   try {
-  //     const action = setCart;
-  //     const resultAction = await dispatch(action);
-  //     const user = unwrapResult(resultAction);
-  //     console.log("User", user);
-  //   } catch (err) {
-  //     console.error(err);
-  //   }
-  // };
-  // useEffect(() => {
-  //   set();
-  // }, []);
+  
   return (
     <div className='bg-[#efefef]'>
       <Router>
         <Header />
+
         <Routes>
           <Route path='/*' element={<ProductFeature />}></Route>
           <Route path='/cart' element={<CartFeature />}></Route>

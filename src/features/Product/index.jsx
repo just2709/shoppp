@@ -13,7 +13,7 @@ function ProductFeature(props) {
     <div>
       <Routes>
         {/* <Route path='/myshop' element={<Navigate to='/' replace />} /> */}
-        <Route path='/myshop/' element={<HomePage />}></Route>
+        <Route path='/shoppp/' element={<HomePage />}></Route>
         <Route path='products' element={<ListPage />}></Route>
         <Route path='products/:productId' element={<DetailPage />}></Route>
       </Routes>

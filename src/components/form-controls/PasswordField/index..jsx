@@ -9,13 +9,15 @@ import InputLabel from "@mui/material/InputLabel";
 import * as React from "react";
 import { PropTypes } from "prop-types";
 import { Controller } from "react-hook-form";
-import { OutlinedInput } from "@mui/material";
+import { FormHelperText, OutlinedInput } from "@mui/material";
 export default function PasswordField(props) {
+  const { form, name, label, disabled } = props;
+  const errors = form.formState.errors;
   const [values, setValues] = React.useState({
-    amount: "",
-    password: "",
-    weight: "",
-    weightRange: "",
+    // amount: "",
+    // password: "",
+    // weight: "",
+    // weightRange: "",
     showPassword: false,
   });
 
@@ -33,11 +35,10 @@ export default function PasswordField(props) {
   const handleMouseDownPassword = (event) => {
     event.preventDefault();
   };
-  const { form, name, label, disabled } = props;
-
+  const hasErr = errors[name];
   return (
     <Box className='mb-5 mt-2 w-full'>
-      <FormControl fullWidth>
+      <FormControl fullWidth error={!!hasErr}>
         <InputLabel htmlFor={`standard-adornment-password${label}`}>{label}</InputLabel>
         <Controller
           name={name}
@@ -65,6 +66,11 @@ export default function PasswordField(props) {
           label={label}
           disabled={disabled}
         />
+        {!!hasErr && (
+          <FormHelperText error id={`standard-adornment-password${label}`}>
+            {errors[name]?.message}
+          </FormHelperText>
+        )}
       </FormControl>
     </Box>
   );

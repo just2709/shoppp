@@ -5,12 +5,15 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { Provider } from "react-redux";
 import store from "./app/store";
+import { SnackbarProvider } from "notistack";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <Provider store={store}>
-      <App />
+      <SnackbarProvider autoHideDuration={1000} anchorOrigin={{ vertical: "right", horizontal: "top" }}>
+        <App />
+      </SnackbarProvider>
     </Provider>
   </React.StrictMode>
 );

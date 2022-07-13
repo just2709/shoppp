@@ -45,12 +45,9 @@ const FILTER_LIST = [
   },
   {
     id: 3,
-    getLabel: (filters) =>
-      `Từ ${filters.salePrice_gte} đến ${filters.salePrice_lte}`,
+    getLabel: (filters) => `Từ ${filters.salePrice_gte} đến ${filters.salePrice_lte}`,
     isActive: () => true,
-    isVisible: (filters) =>
-      Object.keys(filters).includes("salePrice_gte") &&
-      Object.keys(filters).includes("salePrice_lte"),
+    isVisible: (filters) => Object.keys(filters).includes("salePrice_gte") && Object.keys(filters).includes("salePrice_lte"),
     isRemovable: true,
     onRemove: (filters) => {
       const newFilters = { ...filters };
@@ -77,7 +74,7 @@ const FILTER_LIST = [
 ];
 
 function FilterViewer({ filters, onChange }) {
-  console.log(filters);
+  // console.log(filters);
   return (
     <Box>
       <ul className='flex mt-5'>

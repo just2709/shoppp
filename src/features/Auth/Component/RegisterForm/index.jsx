@@ -10,7 +10,15 @@ import PasswordField from "./../../../../components/form-controls/PasswordField/
 import { deepOrange } from "@mui/material/colors";
 
 const RegisterForm = (props) => {
-  const schema = yup.object({});
+  const schema = yup.object({
+    fullName: yup.string().required("Hãy nhập tên của bạn"),
+    email: yup.string().required("Hãy nhập Email").email("Email không hợp lệ"),
+    password: yup.string().required("Hãy nhập mật khẩu"),
+    retypePassword: yup
+      .string()
+      .required("Hãy nhập lại mật khẩu")
+      .oneOf([yup.ref("password")], "Mật khẩu không khớp"),
+  });
 
   RegisterForm.propTypes = {
     onSubmit: PropTypes.func,
@@ -31,7 +39,7 @@ const RegisterForm = (props) => {
     if (onSubmit) {
       onSubmit(values);
     }
-    form.reset();
+    // form.reset();
   };
 
   return (

@@ -10,7 +10,10 @@ import PasswordField from "../../../../components/form-controls/PasswordField/in
 import { deepOrange } from "@mui/material/colors";
 
 const LoginForm = (props) => {
-  const schema = yup.object({});
+  const schema = yup.object({
+    identifier: yup.string().required("Hãy nhập Email").email("Email không hợp lệ"),
+    password: yup.string().required("Hãy nhập mật khẩu"),
+  });
 
   LoginForm.propTypes = {
     onSubmit: PropTypes.func,
@@ -18,8 +21,8 @@ const LoginForm = (props) => {
 
   const form = useForm({
     defaultValues: {
-      fullName: "",
-      email: "",
+      identifier: "",
+      password: "",
     },
     resolver: yupResolver(schema),
   });
@@ -29,7 +32,7 @@ const LoginForm = (props) => {
     if (onSubmit) {
       onSubmit(values);
     }
-    form.reset();
+    // form.reset();
   };
 
   return (

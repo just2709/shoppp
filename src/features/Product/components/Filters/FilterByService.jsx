@@ -15,7 +15,7 @@ function FilterByService({ filters, onChange }) {
     if (!onChange) return;
     const { name, checked } = e.target;
     if (checked === "false") {
-      console.log(checked);
+      // console.log(checked);
       onChange({ [name]: "" });
     } else {
       onChange({ [name]: checked });

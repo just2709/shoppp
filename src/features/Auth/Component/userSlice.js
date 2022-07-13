@@ -21,7 +21,7 @@ export const login = createAsyncThunk("user/login", async (payload) => {
       if (snapshot.exists()) {
         cart = snapshot.val();
       } else {
-        console.log("No data available");
+        // console.log("No data available");
         cart = [];
       }
     })

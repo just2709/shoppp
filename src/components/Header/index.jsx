@@ -52,7 +52,7 @@ function Header(props) {
       dispatch(emptyCart());
       setOpenUser(false);
       navigate({
-        pathname: "myshop",
+        pathname: "shoppp",
       });
     } catch (err) {
       console.error(err);
@@ -93,7 +93,7 @@ function Header(props) {
       <div>
         <ul>
           <li className='inline-block'>
-            <NavLink className={(navData) => (navData.isActive ? "text-[#3B82F6] bg-white p-5 rounded-xl font-bold" : "p-5")} to='/myshop'>
+            <NavLink className={(navData) => (navData.isActive ? "text-[#3B82F6] bg-white p-5 rounded-xl font-bold" : "p-5")} to='/shoppp'>
               Trang chủ
             </NavLink>
           </li>

@@ -39,7 +39,7 @@ function Product({ product }) {
 
   const navigate = useNavigate();
   const handleClick = () => {
-    console.log(product.id);
+    // console.log(product.id);
 
     navigate({
       pathname: `/products/${product.id}`,
